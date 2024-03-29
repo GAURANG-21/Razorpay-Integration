@@ -2,7 +2,7 @@ import { instance } from "../app.js";
 
 export const checkout = async (req, res) => {
   const order = await instance.orders.create({
-    amount: 50000,
+    amount: req.body.amount,
     currency: "INR",
     receipt: "receipt#1",
     partial_payment: false,
@@ -11,8 +11,8 @@ export const checkout = async (req, res) => {
       key2: "value2",
     },
   });
-  console.log(order)
   res.status(200).json({
     success: "true",
+    order: order,
   });
 };

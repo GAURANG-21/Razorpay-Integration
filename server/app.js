@@ -12,8 +12,10 @@ export const instance = new razorpay({
   key_secret: RAZORPAY_API_SECRET,
 });
 
-app.use("/api", paymentRoutes);
 app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use("/api", paymentRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on PORT ${PORT}`);
