@@ -27,10 +27,12 @@ export const paymentVerification = (req, res) => {
     .update(body.toString())
     .digest("hex");
 
-  const isAuthentic = expectedSignature === razorpFay_signature;
+  const isAuthentic = expectedSignature === razorpay_signature;
   if (isAuthentic) {
     //Save the credentials in database
-    res.redirect(`http://localhost:5173/paymentsuccess?reference=${razorpay_payment_id}}`)
+    res.redirect(
+      `http://localhost:5173/paymentsuccess?reference=${razorpay_payment_id}}`
+    );
   } else {
     return res.status(200).json({
       success: true,
