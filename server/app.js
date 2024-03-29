@@ -17,6 +17,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/api", paymentRoutes);
 
+app.get("/getapikey", (req, res) =>
+  res.status(200).json({
+    RAZORPAY_API_KEY,
+  })
+);
+
 app.listen(PORT, () => {
   console.log(`Server is running on PORT ${PORT}`);
 });

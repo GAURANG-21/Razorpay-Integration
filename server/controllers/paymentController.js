@@ -16,3 +16,10 @@ export const checkout = async (req, res) => {
     order: order,
   });
 };
+
+export const paymentVerification = (req, res) => {
+  console.log(req.body);
+  return res.status(200).json({
+    success: true,
+  });
+};
