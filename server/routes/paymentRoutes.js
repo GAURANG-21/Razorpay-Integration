@@ -3,6 +3,6 @@ import { checkout } from "../controllers/paymentController.js";
 
 const router = express.Router();
 
-router.route("/checkout").post(checkout);
+router.post('/checkout', checkout);
 
 export default router;
